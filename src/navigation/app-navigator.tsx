@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 enum Screen {
   Instruments = 'Instruments',
   Portfolio = 'Portfolio',
-  Search = 'Search',
+  Search = 'Search'
 }
 
 type TabScreen = keyof typeof Screen;
@@ -18,7 +18,7 @@ type TabScreen = keyof typeof Screen;
 const TAB_ICONS: Record<TabScreen, keyof typeof Ionicons.glyphMap> = {
   Instruments: 'bar-chart-outline',
   Portfolio: 'briefcase-outline',
-  Search: 'search-outline',
+  Search: 'search-outline'
 };
 
 const Tab = createBottomTabNavigator();
@@ -33,24 +33,26 @@ function PlaceholderScreen({ route }: any) {
 }
 
 const TabNavigator = () => {
-
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarIcon: ({ color, size }) => (
-          <Ionicons name={TAB_ICONS[route.name as TabScreen]} size={size} color={color} />
+          <Ionicons
+            name={TAB_ICONS[route.name as TabScreen]}
+            size={size}
+            color={color}
+          />
         ),
         tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
-      })}
-    >
+        tabBarInactiveTintColor: 'gray'
+      })}>
       <Tab.Screen name={Screen.Instruments} component={PlaceholderScreen} />
       <Tab.Screen name={Screen.Portfolio} component={PlaceholderScreen} />
       <Tab.Screen name={Screen.Search} component={PlaceholderScreen} />
     </Tab.Navigator>
   );
-}
+};
 
 export const AppNavigator = () => {
   return (
@@ -61,4 +63,4 @@ export const AppNavigator = () => {
       </Stack.Group>
     </Stack.Navigator>
   );
-}
+};
