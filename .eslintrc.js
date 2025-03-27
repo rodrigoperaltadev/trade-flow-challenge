@@ -26,7 +26,7 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
-
+    'react-native/sort-styles': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
