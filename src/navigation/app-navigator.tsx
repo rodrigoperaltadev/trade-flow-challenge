@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import InstrumentsScreen from '../features/instruments/screens/instruments-screen';
 import PortfolioScreen from '../features/portfolio/screens/portfolio-screen';
 import SearchScreen from '../features/search/screens/search-screen';
-import OrderModal from '../features/orders/screens/order-modal';
 import { Ionicons } from '@expo/vector-icons';
 
 enum Screen {
@@ -49,9 +48,6 @@ export const AppNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Main" component={TabNavigator} />
-      <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="OrderModal" component={OrderModal} />
-      </Stack.Group>
     </Stack.Navigator>
   );
 };
