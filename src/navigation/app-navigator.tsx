@@ -4,6 +4,7 @@ import InstrumentsScreen from '../features/instruments/screens/instruments-scree
 import PortfolioScreen from '../features/portfolio/screens/portfolio-screen';
 import SearchScreen from '../features/search/screens/search-screen';
 import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '../theme/colors';
 
 enum Screen {
   Instruments = 'Instruments',
@@ -34,7 +35,7 @@ const TabNavigator = () => {
             color={color}
           />
         ),
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: 'gray'
       })}>
       <Tab.Screen name={Screen.Instruments} component={InstrumentsScreen} />
