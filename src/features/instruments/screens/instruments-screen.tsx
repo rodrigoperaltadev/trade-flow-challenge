@@ -6,13 +6,20 @@ import { ThemedView } from '../../../components/themed-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import OrderModal from '../components/order-modal';
 import { Instrument } from '../../../types/instrument';
+import { Loader } from '../../../components/loader';
+import { CenteredScreenLayout } from '../../../layouts/centered-screen-layout';
 
 export default function InstrumentsScreen() {
   const { data, isLoading, error } = useInstruments();
   const [selectedInstrument, setSelectedInstrument] =
     useState<Instrument | null>(null);
 
-  if (isLoading) return <ThemedText>Loading...</ThemedText>;
+  if (isLoading)
+    return (
+      <CenteredScreenLayout>
+        <Loader visible />
+      </CenteredScreenLayout>
+    );
   if (error) return <ThemedText>Error loading instruments</ThemedText>;
 
   return (
