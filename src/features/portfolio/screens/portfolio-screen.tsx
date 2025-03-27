@@ -16,7 +16,7 @@ export default function PortfolioScreen() {
       <ThemedView style={styles.container}>
         <FlatList
           data={data}
-          keyExtractor={(item) => item.ticker}
+          keyExtractor={(item, index) => item.ticker + index}
           renderItem={({ item }) => (
             <View style={styles.itemContainer}>
               <ThemedText style={styles.itemText}>{item.ticker}</ThemedText>
