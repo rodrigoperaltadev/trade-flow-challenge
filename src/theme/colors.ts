@@ -8,5 +8,8 @@ export const COLORS = {
   border: '#E2E8F0',
   success: '#00C853',
   warning: '#FFAB00',
-  error: '#D32F2F'
+  error: '#D32F2F',
+  white: '#FFFFFF',
+  overlayModal: 'rgba(0, 0, 0, 0.7)',
+  black: '#202020'
 };
