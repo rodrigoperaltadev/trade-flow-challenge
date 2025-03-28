@@ -59,7 +59,6 @@ export default function InstrumentsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 16,
     padding: 16
   }
 });

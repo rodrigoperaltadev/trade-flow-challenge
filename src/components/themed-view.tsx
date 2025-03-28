@@ -13,16 +13,12 @@ export const ThemedView: FC<ThemedViewProps> = ({
   ...props
 }) => {
   const { background } = useTheme();
-  const { top, bottom } = useSafeAreaInsets();
+  const { top } = useSafeAreaInsets();
   const paddingTop = safeArea ? top : 0;
-  const paddingBottom = safeArea ? bottom : 0;
 
   return (
     <View
-      style={[
-        { backgroundColor: background, paddingTop, paddingBottom },
-        style
-      ]}
+      style={[{ backgroundColor: background, paddingTop }, style]}
       {...props}
     />
   );
