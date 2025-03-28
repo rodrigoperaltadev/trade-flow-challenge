@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
-import { Modal, View, StyleSheet } from 'react-native';
+import { Modal, View, StyleSheet, Pressable, Platform } from 'react-native';
 import { COLORS } from '../theme/colors';
+import { ThemedView } from '../components/themed-view';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface ModalLayoutProps {
   visible: boolean;
@@ -13,35 +16,33 @@ export const ModalLayout: FC<ModalLayoutProps> = ({
   onClose,
   children
 }) => {
+  const { top } = useSafeAreaInsets();
+  const isIos = Platform.OS === 'ios';
+  const paddingTop = isIos ? top : 0;
+
   return (
     <Modal
       transparent
       animationType="slide"
       visible={visible}
       onRequestClose={onClose}>
-      <View style={styles.overlay}>
+      <ThemedView style={[styles.overlay, { paddingTop }]}>
+        <Pressable onPress={onClose}>
+          <Ionicons name="close" size={32} color={COLORS.black} />
+        </Pressable>
         <View style={styles.modalContent}>{children}</View>
-      </View>
+      </ThemedView>
     </Modal>
   );
 };
 
 const styles = StyleSheet.create({
   modalContent: {
-    backgroundColor: COLORS.white,
-    borderRadius: 10,
-    elevation: 5,
-    padding: 20,
-    shadowColor: COLORS.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    width: '90%'
+    flex: 1,
+    padding: 8
   },
   overlay: {
-    alignItems: 'center',
-    backgroundColor: COLORS.overlayModal,
     flex: 1,
-    justifyContent: 'center'
+    padding: 8
   }
 });
