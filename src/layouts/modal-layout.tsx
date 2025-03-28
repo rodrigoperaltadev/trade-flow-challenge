@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Modal, View, StyleSheet, Pressable, Platform } from 'react-native';
-import { COLORS } from '../theme/colors';
 import { ThemedView } from '../components/themed-view';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTheme } from '../theme/useTheme';
 
 interface ModalLayoutProps {
   visible: boolean;
@@ -19,6 +19,7 @@ export const ModalLayout: FC<ModalLayoutProps> = ({
   const { top } = useSafeAreaInsets();
   const isIos = Platform.OS === 'ios';
   const paddingTop = isIos ? top : 0;
+  const { text } = useTheme();
 
   return (
     <Modal
@@ -28,7 +29,7 @@ export const ModalLayout: FC<ModalLayoutProps> = ({
       onRequestClose={onClose}>
       <ThemedView style={[styles.overlay, { paddingTop }]}>
         <Pressable onPress={onClose}>
-          <Ionicons name="close" size={32} color={COLORS.black} />
+          <Ionicons name="close" size={32} color={text} />
         </Pressable>
         <View style={styles.modalContent}>{children}</View>
       </ThemedView>

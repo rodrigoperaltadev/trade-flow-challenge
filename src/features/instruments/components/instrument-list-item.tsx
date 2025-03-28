@@ -11,6 +11,7 @@ import { FC } from 'react';
 import { logoPNG } from '../../../assets/images';
 import { PercentageIndicator } from '../../../components/percentage-indicator';
 import { COLORS } from '../../../theme/colors';
+import { formatCurrency } from '../../../utils/formatters';
 
 type InstrumentListItemProps = {
   item: Instrument;
@@ -31,7 +32,7 @@ export const InstrumentListItem: FC<InstrumentListItemProps> = ({
         <ThemedText style={styles.tickerText}>{item.ticker}</ThemedText>
       </View>
       <View style={styles.marketInfoContainer}>
-        <ThemedText>${item.last_price}</ThemedText>
+        <ThemedText>{formatCurrency(item.last_price)}</ThemedText>
         <PercentageIndicator value={item.return_percentage} />
       </View>
     </TouchableOpacity>
