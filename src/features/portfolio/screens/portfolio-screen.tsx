@@ -15,14 +15,19 @@ export default function PortfolioScreen() {
 
   if (isLoading)
     return (
-      <CenteredScreenLayout>
+      <CenteredScreenLayout testID="portfolio-loading-view">
         <Loader visible />
       </CenteredScreenLayout>
     );
-  if (error) return <ThemedText>{t('portfolio.error')}</ThemedText>;
+  if (error)
+    return (
+      <CenteredScreenLayout testID="portfolio-error-view">
+        <ThemedText>{t('portfolio.error')}</ThemedText>
+      </CenteredScreenLayout>
+    );
 
   return (
-    <ThemedView safeArea style={styles.container}>
+    <ThemedView safeArea style={styles.container} testID="portfolio-list-view">
       <FlatList
         data={data}
         keyExtractor={(item, index) => item.ticker + index}

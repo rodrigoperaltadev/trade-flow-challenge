@@ -18,24 +18,25 @@ export default function SearchScreen() {
   const renderContent = useCallback(() => {
     if (isLoading)
       return (
-        <CenteredScreenLayout>
+        <CenteredScreenLayout testID="search-loading-view">
           <Loader visible />
         </CenteredScreenLayout>
       );
     if (error)
       return (
-        <CenteredScreenLayout>
+        <CenteredScreenLayout testID="search-error-view">
           <ThemedText>{t('search.error')}</ThemedText>
         </CenteredScreenLayout>
       );
     if (!data?.length)
       return (
-        <CenteredScreenLayout>
+        <CenteredScreenLayout testID="search-empty-view">
           <ThemedText>{t('search.noResults')}</ThemedText>
         </CenteredScreenLayout>
       );
     return (
       <FlatList
+        testID="search-results-list"
         data={data}
         keyExtractor={(item) => item.ticker}
         renderItem={({ item }) => (
@@ -52,12 +53,13 @@ export default function SearchScreen() {
   }, [data, isLoading, error, t]);
 
   return (
-    <ThemedView safeArea style={styles.container}>
+    <ThemedView safeArea style={styles.container} testID="search-screen">
       <TextInput
         placeholder={t('search.placeholder')}
         value={query}
         onChangeText={setQuery}
         style={styles.textInput}
+        testID="search-input"
       />
       {renderContent()}
     </ThemedView>

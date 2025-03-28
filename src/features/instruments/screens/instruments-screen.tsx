@@ -17,20 +17,23 @@ export default function InstrumentsScreen() {
 
   if (isLoading)
     return (
-      <CenteredScreenLayout>
+      <CenteredScreenLayout testID="instruments-loading-view">
         <Loader visible />
       </CenteredScreenLayout>
     );
   if (error)
     return (
-      <CenteredScreenLayout>
+      <CenteredScreenLayout testID="instruments-error-view">
         <ThemedText>Error loading instruments</ThemedText>
       </CenteredScreenLayout>
     );
 
   return (
     <React.Fragment>
-      <ThemedView safeArea style={styles.container}>
+      <ThemedView
+        safeArea
+        style={styles.container}
+        testID="instruments-list-view">
         <FlatList
           data={data}
           keyExtractor={(item) => item.ticker}

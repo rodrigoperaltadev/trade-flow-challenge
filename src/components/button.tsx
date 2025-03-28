@@ -49,9 +49,9 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     borderRadius: 16,
-    padding: 12,
     flexDirection: 'row',
+    gap: 8,
     justifyContent: 'center',
-    gap: 8
+    padding: 12
   }
 });
