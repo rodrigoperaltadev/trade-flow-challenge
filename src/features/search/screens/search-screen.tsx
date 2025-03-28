@@ -31,7 +31,9 @@ export default function SearchScreen() {
     if (!data?.length)
       return (
         <CenteredScreenLayout testID="search-empty-view">
-          <ThemedText>{t('search.noResults')}</ThemedText>
+          <ThemedText>
+            {query ? t('search.noResults') : t('common.doASearch')}
+          </ThemedText>
         </CenteredScreenLayout>
       );
     return (

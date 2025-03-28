@@ -10,6 +10,7 @@
     "edit": "Edit",
     "search": "Search",
     "noResults": "No results found",
+    "doASearch": "Do a search",
     "retry": "Retry",
     "refresh": "Refresh",
     "percentage": "{{value}}%",
