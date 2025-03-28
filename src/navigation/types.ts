@@ -4,6 +4,7 @@ export type RootTabParamList = {
   Instruments: undefined;
   Portfolio: undefined;
   Search: undefined;
+  Settings: undefined;
 };
 
 export type ScreenName = keyof RootTabParamList;
