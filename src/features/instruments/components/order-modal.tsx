@@ -8,6 +8,7 @@ import { ThemedText } from '../../../components/themed-text';
 import { ButtonGroup } from '../../../components/button-group';
 import { COLORS } from '../../../theme/colors';
 import { Button } from '../../../components/button';
+import { useTranslation } from 'react-i18next';
 
 interface OrderModalProps {
   visible: boolean;
@@ -20,6 +21,7 @@ export const OrderModal: FC<OrderModalProps> = ({
   onClose,
   instrument
 }) => {
+  const { t } = useTranslation();
   const [quantity, setQuantity] = useState('');
   const [orderType, setOrderType] = useState<OrderType>('BUY');
   const [orderMode, setOrderMode] = useState<OrderMode>('MARKET');
@@ -54,11 +56,14 @@ export const OrderModal: FC<OrderModalProps> = ({
 
     mutate(orderData, {
       onSuccess: (data) => {
-        Alert.alert('Orden enviada', `Estado: ${data.status}`);
+        Alert.alert(
+          t('instruments.order.success'),
+          t('instruments.order.status', { status: data.status })
+        );
         onClose();
       },
       onError: () => {
-        Alert.alert('Error', 'No se pudo enviar la orden');
+        Alert.alert(t('common.error'), t('instruments.order.error'));
       }
     });
   };
@@ -75,7 +80,7 @@ export const OrderModal: FC<OrderModalProps> = ({
       <View style={styles.contentContainer}>
         <View>
           <ThemedText size={18} fontWeight="bold">
-            Orden para {instrument.name}
+            {t('instruments.order.title', { name: instrument.name })}
           </ThemedText>
           <ThemedText size={18} fontWeight="bold">
             ({instrument.ticker})
@@ -83,7 +88,7 @@ export const OrderModal: FC<OrderModalProps> = ({
         </View>
 
         <View style={styles.buttonGroupContainer}>
-          <ThemedText>Tipo de Orden:</ThemedText>
+          <ThemedText>{t('instruments.order.type')}:</ThemedText>
 
           <ButtonGroup
             buttons={orderTypesButtons}
@@ -92,7 +97,7 @@ export const OrderModal: FC<OrderModalProps> = ({
           />
         </View>
         <View style={styles.buttonGroupContainer}>
-          <ThemedText>Modo:</ThemedText>
+          <ThemedText>{t('instruments.order.mode')}:</ThemedText>
           <ButtonGroup
             buttons={['MARKET', 'LIMIT']}
             onButtonPress={(item) => setOrderMode(item as OrderMode)}
@@ -101,7 +106,7 @@ export const OrderModal: FC<OrderModalProps> = ({
         </View>
 
         <View style={styles.textFieldContainer}>
-          <ThemedText>Cantidad:</ThemedText>
+          <ThemedText>{t('instruments.order.quantity')}:</ThemedText>
           <TextInput
             keyboardType="numeric"
             value={quantity}
@@ -112,7 +117,7 @@ export const OrderModal: FC<OrderModalProps> = ({
 
         {orderMode === 'LIMIT' && (
           <View style={styles.textFieldContainer}>
-            <ThemedText>Precio:</ThemedText>
+            <ThemedText>{t('instruments.order.price')}:</ThemedText>
             <TextInput
               keyboardType="numeric"
               value={price}
@@ -122,7 +127,7 @@ export const OrderModal: FC<OrderModalProps> = ({
           </View>
         )}
         <Button
-          label="Enviar Orden"
+          label={t('instruments.order.submit')}
           onPress={handleOrder}
           disabled={isInvalid()}
           isPending={isPending}

@@ -5,12 +5,14 @@ import { FC } from 'react';
 import { logoPNG } from '../../../assets/images';
 import { PercentageIndicator } from '../../../components/percentage-indicator';
 import { formatCurrency } from '../../../utils/formatters';
+import { useTranslation } from 'react-i18next';
 
 type PortfolioListItemProps = {
   item: PortfolioItem;
 };
 
 export const PortfolioListItem: FC<PortfolioListItemProps> = ({ item }) => {
+  const { t } = useTranslation();
   const marketPrice = item.quantity * item.last_price;
   const investmentReturn =
     (item.last_price - item.avg_cost_price) * item.quantity;
@@ -31,7 +33,9 @@ export const PortfolioListItem: FC<PortfolioListItemProps> = ({ item }) => {
         <ThemedText size={14} fontWeight="bold">
           {item.ticker}
         </ThemedText>
-        <ThemedText size={12}>Cantidad: {item.quantity}</ThemedText>
+        <ThemedText size={12}>
+          {t('portfolio.asset.amount')}: {item.quantity}
+        </ThemedText>
         <ThemedText size={12}>{formatCurrency(marketPrice)}</ThemedText>
       </View>
       <View style={styles.infoContainer}>
@@ -62,9 +66,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     gap: 16,
+    height: 80,
     padding: 8,
-    width: '100%',
-    height: 80
+    width: '100%'
   },
   logo: {
     borderRadius: 50,

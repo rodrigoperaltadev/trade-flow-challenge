@@ -6,6 +6,7 @@ import { ThemedView } from './src/components/themed-view';
 import { StyleSheet } from 'react-native';
 import { CustomStatusBar } from './src/features/instruments/components/custom-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import './src/translations/i18n';
 
 const App = () => {
   return (

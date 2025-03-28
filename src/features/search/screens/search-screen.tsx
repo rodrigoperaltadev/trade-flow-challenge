@@ -8,8 +8,10 @@ import { COLORS } from '../../../theme/colors';
 import { CenteredScreenLayout } from '../../../layouts/centered-screen-layout';
 import { Loader } from '../../../components/loader';
 import { ListItemSeparator } from '../../../components/list-item-separator';
+import { useTranslation } from 'react-i18next';
 
 export default function SearchScreen() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState('');
   const { data, isLoading, error } = useSearch(query);
 
@@ -23,13 +25,13 @@ export default function SearchScreen() {
     if (error)
       return (
         <CenteredScreenLayout>
-          <ThemedText>Error en la búsqueda</ThemedText>
+          <ThemedText>{t('search.error')}</ThemedText>
         </CenteredScreenLayout>
       );
     if (!data?.length)
       return (
         <CenteredScreenLayout>
-          <ThemedText>No se encontraron resultados</ThemedText>
+          <ThemedText>{t('search.noResults')}</ThemedText>
         </CenteredScreenLayout>
       );
     return (
@@ -47,12 +49,12 @@ export default function SearchScreen() {
         ItemSeparatorComponent={() => <ListItemSeparator />}
       />
     );
-  }, [data, isLoading, error]);
+  }, [data, isLoading, error, t]);
 
   return (
     <ThemedView safeArea style={styles.container}>
       <TextInput
-        placeholder="Buscar por ticker..."
+        placeholder={t('search.placeholder')}
         value={query}
         onChangeText={setQuery}
         style={styles.textInput}

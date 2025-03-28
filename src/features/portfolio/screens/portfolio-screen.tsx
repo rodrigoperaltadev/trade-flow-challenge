@@ -7,8 +7,10 @@ import { CenteredScreenLayout } from '../../../layouts/centered-screen-layout';
 import { Loader } from '../../../components/loader';
 import { PortfolioListItem } from '../components/portfolio-list-item';
 import { ListItemSeparator } from '../../../components/list-item-separator';
+import { useTranslation } from 'react-i18next';
 
 export default function PortfolioScreen() {
+  const { t } = useTranslation();
   const { data, isLoading, error } = usePortfolio();
 
   if (isLoading)
@@ -17,7 +19,7 @@ export default function PortfolioScreen() {
         <Loader visible />
       </CenteredScreenLayout>
     );
-  if (error) return <ThemedText>Error loading portfolio</ThemedText>;
+  if (error) return <ThemedText>{t('portfolio.error')}</ThemedText>;
 
   return (
     <ThemedView safeArea style={styles.container}>

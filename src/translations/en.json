@@ -1,0 +1,110 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "noResults": "No results found",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "percentage": "{{value}}%",
+    "value": "{{value}}",
+    "currency": "{{value}} {{currency}}"
+  },
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile",
+    "settings": "Settings",
+    "portfolio": "Portfolio",
+    "instruments": "Instruments",
+    "search": "Search"
+  },
+  "instruments": {
+    "title": "Instruments",
+    "price": "Price",
+    "change": "Change",
+    "volume": "Volume",
+    "marketCap": "Market Cap",
+    "high": "High",
+    "low": "Low",
+    "open": "Open",
+    "close": "Close",
+    "filters": {
+      "title": "Filters",
+      "all": "All",
+      "crypto": "Cryptocurrencies",
+      "stocks": "Stocks",
+      "forex": "Forex"
+    },
+    "order": {
+      "title": "Order for {{name}}",
+      "type": "Order Type",
+      "mode": "Mode",
+      "quantity": "Quantity",
+      "price": "Price",
+      "submit": "Submit Order",
+      "success": "Order Sent",
+      "status": "Status: {{status}}",
+      "error": "Could not send order"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "totalValue": "Total Value",
+    "dayChange": "24h Change",
+    "holdings": "Holdings",
+    "addAsset": "Add Asset",
+    "empty": "Your portfolio is empty",
+    "addFirstAsset": "Add your first asset to get started",
+    "asset": {
+      "amount": "Amount",
+      "averagePrice": "Average Price",
+      "totalValue": "Total Value",
+      "profitLoss": "Profit/Loss",
+      "profitLossPercentage": "P/L %"
+    },
+    "error": "Error loading portfolio"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search by ticker...",
+    "recentSearches": "Recent Searches",
+    "clearRecent": "Clear Recent",
+    "noResults": "No instruments found",
+    "error": "Search error"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "currency": "Currency",
+    "about": "About",
+    "version": "Version",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "logout": "Logout"
+  },
+  "components": {
+    "button": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "outline": "Outline",
+      "text": "Text"
+    },
+    "badge": {
+      "positive": "Positive",
+      "negative": "Negative",
+      "neutral": "Neutral"
+    },
+    "loader": {
+      "loading": "Loading...",
+      "error": "Error loading"
+    }
+  }
+}

@@ -4,8 +4,10 @@ import { ThemedView } from '../../../components/themed-view';
 import { ButtonGroup } from '../../../components/button-group';
 import { Theme } from '../../../types/theme';
 import { useThemeStore } from '../../../store/theme-store';
+import { useTranslation } from 'react-i18next';
 
 export const SettingsScreen = () => {
+  const { t } = useTranslation();
   const themeButtons: Theme[] = ['light', 'dark'];
   const { theme, setTheme } = useThemeStore();
 
@@ -13,7 +15,7 @@ export const SettingsScreen = () => {
     <ThemedView safeArea style={styles.container}>
       <View style={styles.settingContainer}>
         <ThemedText fontWeight="bold" size={18}>
-          Theme
+          {t('settings.theme')}
         </ThemedText>
         <ButtonGroup
           buttons={themeButtons}

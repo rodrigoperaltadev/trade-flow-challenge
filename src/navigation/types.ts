@@ -1,13 +1,20 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { NavigatorScreenParams } from '@react-navigation/native';
 
-export type RootTabParamList = {
+export type TabParamList = {
   Instruments: undefined;
   Portfolio: undefined;
   Search: undefined;
   Settings: undefined;
 };
 
-export type ScreenName = keyof RootTabParamList;
+export type RootStackParamList = {
+  Main: NavigatorScreenParams<TabParamList>;
+};
 
-export type TabScreenProps<T extends keyof RootTabParamList> =
-  BottomTabScreenProps<RootTabParamList, T>;
+export type ScreenName = keyof TabParamList;
+
+export type TabScreenProps<T extends keyof TabParamList> = BottomTabScreenProps<
+  TabParamList,
+  T
+>;

@@ -1,0 +1,110 @@
+{
+  "common": {
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "noResults": "No se encontraron resultados",
+    "retry": "Reintentar",
+    "refresh": "Actualizar",
+    "percentage": "{{value}}%",
+    "value": "{{value}}",
+    "currency": "{{value}} {{currency}}"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "portfolio": "Cartera",
+    "instruments": "Instrumentos",
+    "search": "Búsqueda"
+  },
+  "instruments": {
+    "title": "Instrumentos",
+    "price": "Precio",
+    "change": "Cambio",
+    "volume": "Volumen",
+    "marketCap": "Capitalización",
+    "high": "Máximo",
+    "low": "Mínimo",
+    "open": "Apertura",
+    "close": "Cierre",
+    "filters": {
+      "title": "Filtros",
+      "all": "Todos",
+      "crypto": "Criptomonedas",
+      "stocks": "Acciones",
+      "forex": "Forex"
+    },
+    "order": {
+      "title": "Orden para {{name}}",
+      "type": "Tipo de Orden",
+      "mode": "Modo",
+      "quantity": "Cantidad",
+      "price": "Precio",
+      "submit": "Enviar Orden",
+      "success": "Orden Enviada",
+      "status": "Estado: {{status}}",
+      "error": "No se pudo enviar la orden"
+    }
+  },
+  "portfolio": {
+    "title": "Cartera",
+    "totalValue": "Valor Total",
+    "dayChange": "Cambio 24h",
+    "holdings": "Posiciones",
+    "addAsset": "Añadir Activo",
+    "empty": "Tu cartera está vacía",
+    "addFirstAsset": "Añade tu primer activo para comenzar",
+    "asset": {
+      "amount": "Cantidad",
+      "averagePrice": "Precio Medio",
+      "totalValue": "Valor Total",
+      "profitLoss": "Beneficio/Pérdida",
+      "profitLossPercentage": "B/P %"
+    },
+    "error": "Error al cargar la cartera"
+  },
+  "search": {
+    "title": "Búsqueda",
+    "placeholder": "Buscar por ticker...",
+    "recentSearches": "Búsquedas Recientes",
+    "clearRecent": "Limpiar Recientes",
+    "noResults": "No se encontraron instrumentos",
+    "error": "Error en la búsqueda"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "theme": "Tema",
+    "notifications": "Notificaciones",
+    "currency": "Moneda",
+    "about": "Acerca de",
+    "version": "Versión",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "logout": "Cerrar Sesión"
+  },
+  "components": {
+    "button": {
+      "primary": "Primario",
+      "secondary": "Secundario",
+      "outline": "Contorno",
+      "text": "Texto"
+    },
+    "badge": {
+      "positive": "Positivo",
+      "negative": "Negativo",
+      "neutral": "Neutral"
+    },
+    "loader": {
+      "loading": "Cargando...",
+      "error": "Error al cargar"
+    }
+  }
+}
