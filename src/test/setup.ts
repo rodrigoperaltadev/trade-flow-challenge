@@ -1,12 +1,5 @@
 import '@testing-library/jest-native/extend-expect';
 import { View } from 'react-native';
-import * as ReanimatedMock from 'react-native-reanimated/mock';
-
-// Mock react-native-reanimated
-jest.mock('react-native-reanimated', () => {
-  ReanimatedMock.default.call = () => {};
-  return ReanimatedMock;
-});
 
 // Mock react-native-safe-area-context
 jest.mock('react-native-safe-area-context', () => ({
