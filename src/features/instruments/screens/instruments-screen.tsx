@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, FlatList, StyleSheet, Button } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { useInstruments } from '../hooks/use-instruments';
 import { ThemedText } from '../../../components/themed-text';
 import { ThemedView } from '../../../components/themed-view';
@@ -8,6 +8,7 @@ import OrderModal from '../components/order-modal';
 import { Instrument } from '../../../types/instrument';
 import { Loader } from '../../../components/loader';
 import { CenteredScreenLayout } from '../../../layouts/centered-screen-layout';
+import { InstrumentListItem } from '../components/instrument-list-item';
 
 export default function InstrumentsScreen() {
   const { data, isLoading, error } = useInstruments();
@@ -29,20 +30,12 @@ export default function InstrumentsScreen() {
           <FlatList
             data={data}
             keyExtractor={(item) => item.ticker}
+            showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-              <View style={styles.itemContainer}>
-                <ThemedText style={styles.itemText}>
-                  {item.ticker} - {item.name}
-                </ThemedText>
-                <ThemedText>Último Precio: ${item.last_price}</ThemedText>
-                <ThemedText>
-                  Retorno: {(item.last_price - item.close_price).toFixed(2)}
-                </ThemedText>
-                <Button
-                  title="Ordenar"
-                  onPress={() => setSelectedInstrument(item)}
-                />
-              </View>
+              <InstrumentListItem
+                item={item}
+                onItemPress={setSelectedInstrument}
+              />
             )}
           />
         </ThemedView>
@@ -60,13 +53,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16
-  },
-  itemContainer: {
-    marginBottom: 16
-  },
-  itemText: {
-    fontSize: 18,
-    fontWeight: 'bold'
   },
   safeAreaContainer: {
     flex: 1
