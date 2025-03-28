@@ -14,6 +14,13 @@ export const useTheme = () => {
     success: COLORS.success,
     warning: COLORS.warning,
     error: COLORS.error,
-    theme
+    activeTabIcon: COLORS.primary,
+    inactiveTabIcon: theme === 'light' ? COLORS.grey : COLORS.white,
+    tabBarBorderColor: theme === 'light' ? COLORS.greyLight : COLORS.grey,
+    tabBarBackgroundColor:
+      theme === 'light' ? COLORS.backgroundLight : COLORS.backgroundDark,
+    theme,
+    itemSeparatorColor:
+      theme === 'light' ? COLORS.borderLight : COLORS.borderDark
   };
 };
