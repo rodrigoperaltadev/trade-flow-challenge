@@ -15,7 +15,7 @@ A modern trading application built with React Native, featuring a feature-based 
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rodrigoperaltadev/trade-flow-challenge.git
 cd <project-directory>
 ```
 
