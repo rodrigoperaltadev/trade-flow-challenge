@@ -74,10 +74,12 @@ export const OrderModal: FC<OrderModalProps> = ({
     <ModalLayout visible={visible} onClose={onClose}>
       <View style={styles.contentContainer}>
         <View>
-          <ThemedText style={styles.title}>
+          <ThemedText size={18} fontWeight="bold">
             Orden para {instrument.name}
           </ThemedText>
-          <ThemedText style={styles.title}>({instrument.ticker})</ThemedText>
+          <ThemedText size={18} fontWeight="bold">
+            ({instrument.ticker})
+          </ThemedText>
         </View>
 
         <View style={styles.buttonGroupContainer}>
@@ -98,16 +100,18 @@ export const OrderModal: FC<OrderModalProps> = ({
           />
         </View>
 
-        <ThemedText>Cantidad:</ThemedText>
-        <TextInput
-          keyboardType="numeric"
-          value={quantity}
-          onChangeText={setQuantity}
-          style={styles.textInput}
-        />
+        <View style={styles.textFieldContainer}>
+          <ThemedText>Cantidad:</ThemedText>
+          <TextInput
+            keyboardType="numeric"
+            value={quantity}
+            onChangeText={setQuantity}
+            style={styles.textInput}
+          />
+        </View>
 
         {orderMode === 'LIMIT' && (
-          <>
+          <View style={styles.textFieldContainer}>
             <ThemedText>Precio:</ThemedText>
             <TextInput
               keyboardType="numeric"
@@ -115,7 +119,7 @@ export const OrderModal: FC<OrderModalProps> = ({
               onChangeText={setPrice}
               style={styles.textInput}
             />
-          </>
+          </View>
         )}
         <Button
           label="Enviar Orden"
@@ -136,14 +140,16 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 16
   },
+  textFieldContainer: {
+    gap: 8
+  },
   textInput: {
     backgroundColor: COLORS.primaryLight,
     borderRadius: 16,
     fontSize: 14,
     marginBottom: 10,
     padding: 12
-  },
-  title: { fontSize: 18, fontWeight: 'bold' }
+  }
 });
 
 export default OrderModal;
