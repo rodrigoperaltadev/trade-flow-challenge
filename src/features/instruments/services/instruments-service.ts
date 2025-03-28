@@ -1,7 +1,8 @@
 import { apiClient } from '../../../services/api-client';
-import { Instrument } from '../../../types/instrument';
+import { Instrument, InstrumentResponse } from '../../../types/instrument';
+import { mapInstruments } from '../utils/map-instruments';
 
 export const fetchInstruments = async (): Promise<Instrument[]> => {
-  const response = await apiClient.get('/instruments');
-  return response.data;
+  const response = await apiClient.get<InstrumentResponse[]>('/instruments');
+  return mapInstruments(response.data);
 };
