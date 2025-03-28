@@ -15,7 +15,8 @@
     "refresh": "Refresh",
     "percentage": "{{value}}%",
     "value": "{{value}}",
-    "currency": "{{value}} {{currency}}"
+    "currency": "{{value}} {{currency}}",
+    "errorFetch": "Error fetching data"
   },
   "navigation": {
     "home": "Home",

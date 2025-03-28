@@ -52,7 +52,7 @@ export default function SearchScreen() {
         ItemSeparatorComponent={() => <ListItemSeparator />}
       />
     );
-  }, [data, isLoading, error, t]);
+  }, [isLoading, error, t, data, query]);
 
   return (
     <ThemedView safeArea style={styles.container} testID="search-screen">

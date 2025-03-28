@@ -1,17 +1,15 @@
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { usePortfolio } from '../hooks/usePorfolio';
-import { ThemedText } from '../../../components/themed-text';
 import { ThemedView } from '../../../components/themed-view';
 import { CenteredScreenLayout } from '../../../layouts/centered-screen-layout';
 import { Loader } from '../../../components/loader';
 import { PortfolioListItem } from '../components/portfolio-list-item';
 import { ListItemSeparator } from '../../../components/list-item-separator';
-import { useTranslation } from 'react-i18next';
+import { ErrorFetchLayout } from '../../../layouts/error-fetch-layout';
 
 export default function PortfolioScreen() {
-  const { t } = useTranslation();
-  const { data, isLoading, error } = usePortfolio();
+  const { data, isLoading, error, refetch } = usePortfolio();
 
   if (isLoading)
     return (
@@ -21,9 +19,11 @@ export default function PortfolioScreen() {
     );
   if (error)
     return (
-      <CenteredScreenLayout testID="portfolio-error-view">
-        <ThemedText>{t('portfolio.error')}</ThemedText>
-      </CenteredScreenLayout>
+      <ErrorFetchLayout
+        onRetry={() => {
+          refetch();
+        }}
+      />
     );
 
   return (

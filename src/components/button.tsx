@@ -16,7 +16,7 @@ type ButtonProps = TouchableOpacityProps & {
 };
 
 export const Button: FC<ButtonProps> = ({
-  isPending = true,
+  isPending = false,
   label,
   textProps,
   ...buttonProps
@@ -28,11 +28,8 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
-      style={{
-        ...styleButton,
-        ...styles.container
-      }}
-      {...buttonProps}>
+      {...buttonProps}
+      style={[{ ...styleButton }, { ...styles.container }, buttonProps.style]}>
       {isPending && <ActivityIndicator color={'white'} size={20} />}
       <Text style={styles.buttonText} {...textProps}>
         {label}

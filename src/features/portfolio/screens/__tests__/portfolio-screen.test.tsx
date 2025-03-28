@@ -51,9 +51,9 @@ describe('PortfolioScreen', () => {
       error: new Error('Failed to fetch')
     });
 
-    const { getByTestId, getByText } = render(<PortfolioScreen />);
-    expect(getByTestId('portfolio-error-view')).toBeTruthy();
-    expect(getByText('portfolio.error')).toBeTruthy();
+    const { getByText } = render(<PortfolioScreen />);
+    expect(getByText('common.errorFetch')).toBeTruthy();
+    expect(getByText('common.retry')).toBeTruthy();
   });
 
   it('renders portfolio list', () => {

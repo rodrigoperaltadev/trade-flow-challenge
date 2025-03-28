@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { useInstruments } from '../hooks/use-instruments';
-import { ThemedText } from '../../../components/themed-text';
 import { ThemedView } from '../../../components/themed-view';
 import OrderModal from '../components/order-modal';
 import { Instrument } from '../../../types/instrument';
@@ -9,9 +8,10 @@ import { Loader } from '../../../components/loader';
 import { CenteredScreenLayout } from '../../../layouts/centered-screen-layout';
 import { InstrumentListItem } from '../components/instrument-list-item';
 import { ListItemSeparator } from '../../../components/list-item-separator';
+import { ErrorFetchLayout } from '../../../layouts/error-fetch-layout';
 
 export default function InstrumentsScreen() {
-  const { data, isLoading, error } = useInstruments();
+  const { data, isLoading, error, refetch } = useInstruments();
   const [selectedInstrument, setSelectedInstrument] =
     useState<Instrument | null>(null);
 
@@ -23,9 +23,11 @@ export default function InstrumentsScreen() {
     );
   if (error)
     return (
-      <CenteredScreenLayout testID="instruments-error-view">
-        <ThemedText>Error loading instruments</ThemedText>
-      </CenteredScreenLayout>
+      <ErrorFetchLayout
+        onRetry={() => {
+          refetch();
+        }}
+      />
     );
 
   return (

@@ -1,17 +1,19 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import { ThemedView } from '../components/themed-view';
 
 type CenteredScreenLayoutProps = PropsWithChildren & {
   testID?: string;
+  style?: StyleProp<ViewStyle>;
 };
 
 export const CenteredScreenLayout: FC<CenteredScreenLayoutProps> = ({
   children,
-  testID
+  testID,
+  style
 }) => {
   return (
-    <ThemedView style={styles.container} testID={testID}>
+    <ThemedView style={[styles.container, style]} testID={testID}>
       {children}
     </ThemedView>
   );

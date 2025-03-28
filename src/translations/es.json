@@ -15,7 +15,8 @@
     "refresh": "Actualizar",
     "percentage": "{{value}}%",
     "value": "{{value}}",
-    "currency": "{{value}} {{currency}}"
+    "currency": "{{value}} {{currency}}",
+    "errorFetch": "Error al obtener datos"
   },
   "navigation": {
     "home": "Inicio",

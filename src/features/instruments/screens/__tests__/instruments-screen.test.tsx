@@ -48,9 +48,9 @@ describe('InstrumentsScreen', () => {
       error: new Error('Failed to fetch')
     });
 
-    const { getByTestId, getByText } = render(<InstrumentsScreen />);
-    expect(getByTestId('instruments-error-view')).toBeTruthy();
-    expect(getByText('Error loading instruments')).toBeTruthy();
+    const { getByText } = render(<InstrumentsScreen />);
+    expect(getByText('common.errorFetch')).toBeTruthy();
+    expect(getByText('common.retry')).toBeTruthy();
   });
 
   it('renders instruments list', () => {

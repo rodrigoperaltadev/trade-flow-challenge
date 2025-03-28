@@ -61,7 +61,7 @@ describe('SearchScreen', () => {
 
     const { getByTestId, getByText } = render(<SearchScreen />);
     expect(getByTestId('search-empty-view')).toBeTruthy();
-    expect(getByText('search.noResults')).toBeTruthy();
+    expect(getByText('common.doASearch')).toBeTruthy();
   });
 
   it('renders search results', () => {

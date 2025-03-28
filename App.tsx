@@ -27,6 +27,7 @@ const App = () => {
         await Font.loadAsync(Entypo.font);
         await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.warn(e);
       } finally {
         setAppIsReady(true);
