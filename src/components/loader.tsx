@@ -13,7 +13,7 @@ export const Loader: React.FC<LoaderProps> = ({ visible, animationStyle }) => {
     <LottieLoader
       visible={visible}
       source={lottieLoader}
-      speed={1}
+      speed={2.5}
       loop
       style={styles.lottie}
       {...animationStyle}
@@ -22,5 +22,5 @@ export const Loader: React.FC<LoaderProps> = ({ visible, animationStyle }) => {
 };
 
 const styles = StyleSheet.create({
-  lottie: { height: 100, width: 100 }
+  lottie: { height: 80, width: 80 }
 });
