@@ -1,15 +1,20 @@
 export const COLORS = {
   primary: '#08579f',
+  primaryLight: '#E3F2FD',
   secondary: '#0063F5',
   backgroundLight: '#F6F8FA',
-  backgroundDark: '#0D1117',
+  backgroundDark: '#2f2f2f',
   textLight: '#1A1A1A',
   textDark: '#FFFFFF',
   border: '#E2E8F0',
-  success: '#00C853',
-  warning: '#FFAB00',
+  success: '#1d6033',
+  successLight: '#f6fffc',
   error: '#D32F2F',
+  errorLight: '#FFEBEE',
+  warning: '#FFAB00',
   white: '#FFFFFF',
   overlayModal: 'rgba(0, 0, 0, 0.7)',
-  black: '#202020'
+  black: '#202020',
+  grey: '#5D5D5D',
+  greyLight: '#F5F5F5'
 };
