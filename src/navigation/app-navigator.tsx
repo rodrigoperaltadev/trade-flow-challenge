@@ -4,17 +4,10 @@ import InstrumentsScreen from '../features/instruments/screens/instruments-scree
 import PortfolioScreen from '../features/portfolio/screens/portfolio-screen';
 import SearchScreen from '../features/search/screens/search-screen';
 import { Ionicons } from '@expo/vector-icons';
-import { COLORS } from '../theme/colors';
+import { ScreenName } from './types';
+import { useTheme } from '../theme/useTheme';
 
-enum Screen {
-  Instruments = 'Instruments',
-  Portfolio = 'Portfolio',
-  Search = 'Search'
-}
-
-type TabScreen = keyof typeof Screen;
-
-const TAB_ICONS: Record<TabScreen, keyof typeof Ionicons.glyphMap> = {
+const TAB_ICONS: Record<ScreenName, keyof typeof Ionicons.glyphMap> = {
   Instruments: 'bar-chart-outline',
   Portfolio: 'briefcase-outline',
   Search: 'search-outline'
@@ -24,23 +17,34 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const TabNavigator = () => {
+  const {
+    activeTabIcon,
+    inactiveTabIcon,
+    tabBarBackgroundColor,
+    tabBarBorderColor
+  } = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarIcon: ({ color, size }) => (
           <Ionicons
-            name={TAB_ICONS[route.name as TabScreen]}
+            name={TAB_ICONS[route.name as ScreenName]}
             size={size}
             color={color}
           />
         ),
-        tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: 'gray'
+        tabBarActiveTintColor: activeTabIcon,
+        tabBarInactiveTintColor: inactiveTabIcon,
+        tabBarStyle: {
+          backgroundColor: tabBarBackgroundColor,
+          borderColor: tabBarBorderColor
+        }
       })}>
-      <Tab.Screen name={Screen.Instruments} component={InstrumentsScreen} />
-      <Tab.Screen name={Screen.Portfolio} component={PortfolioScreen} />
-      <Tab.Screen name={Screen.Search} component={SearchScreen} />
+      <Tab.Screen name={'Instruments'} component={InstrumentsScreen} />
+      <Tab.Screen name={'Portfolio'} component={PortfolioScreen} />
+      <Tab.Screen name={'Search'} component={SearchScreen} />
     </Tab.Navigator>
   );
 };
